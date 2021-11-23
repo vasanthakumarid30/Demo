@@ -1,0 +1,45 @@
+<h2 class="font-medium" mat-dialog-title>
+  <strong>{{ action }}</strong>
+</h2>
+<mat-dialog-content class="pb-3">
+  <form [formGroup]="dailogform">
+
+    <div fxLayout="row wrap" class="align-items-center">
+      <div fxFlex="100" fxFlex.gt-md="500">
+        <div class="m-r-15 m-l-15">
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              placeholder="Reason"
+              [formControl]="dailogform.controls['isApproved']"
+            />
+          </mat-form-field>
+          <small
+            *ngIf="dailogform.controls['isApproved'].hasError('required') && dailogform.controls['isApproved'].touched"
+            class="text-danger support-text"
+          >You must share some Description.</small>
+        </div>
+      </div>
+    </div>
+    <button
+      mat-button
+      (click)="doAction()"
+      mat-flat-button
+      color="warn"
+      [disabled]="!dailogform.valid"
+    >
+      {{ action }}
+    </button>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+  </form>
+</mat-dialog-content>
+<!--<ng-template #elseTemplate>
+  <p>
+    Sure to delete <b>{{ local_data.Name }}</b> ?
+  </p>
+  <div mat-dialog-actions align="end" class="pt-3">
+    <button mat-button (click)="doAction()" mat-flat-button color="warn">{{ action }}</button>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+  </div>
+</ng-template>-->

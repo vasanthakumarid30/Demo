@@ -1,0 +1,45 @@
+<div class="chatbot-list">
+
+
+<div fxLayout="row wrap">
+    <div fxFlex="100">
+        <div fxFlex.gt-md="100" fxFlex="100"  class="text-center">
+            <button mat-fab color="warn" class="alignment"(click)="addchatbot()">
+                 <mat-icon>add</mat-icon>
+            </button>
+        </div>  
+    </div>
+ 
+</div>
+
+
+
+<div  fxLayout="row wrap">
+    <div fxFlex.gt-sm="25%" fxFlex.gt-xs="100" fxFlex="100" *ngFor="let chatbot of chatbotinfo;">
+        <mat-card class="oh text-center little-profile">
+
+            <img mat-card-image src="assets/images/background/profile-bg.jpg" class="profile-bg-height"
+                alt="Photo of a Shiba Inu" />
+            <mat-card-content>
+                <div class="pro-img">
+                    <img [src]="chatbot.image" width="100" alt="user" />
+                </div>
+                <h3 class="m-b-0">{{chatbot.title}}</h3>
+                <h6 class="m-t-0">{{chatbot.subtitle}}</h6>
+                <mat-card-actions>
+                    <mat-card-actions>
+                        <button mat-fab color="accent" (click)="chatbotDashbord()">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        &nbsp;
+                        <button mat-fab color="warn"><mat-icon>delete</mat-icon></button>
+                    </mat-card-actions>
+                </mat-card-actions>
+
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+</div>
+
+</div>
